@@ -15,6 +15,7 @@ class MainApp:
         self.windows_closed = 0
         self.ventanas_abiertas = []  # Lista para almacenar las ventanas secundarias
         self.ventanas_abiertas_titulos = set()  # Conjunto para almacenar los títulos de las ventanas abiertas
+        self.ventanas_abiertas_titulos_historial = set()  # Conjunto para almacenar el historial de títulos abiertos
 
         # Contenedor para los botones
         self.frame_botones = tk.Frame(self.root)
@@ -45,6 +46,17 @@ class MainApp:
         tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
         tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
 
+         # Botones de tipo radio button
+        # self.radio_var = tk.StringVar()
+        # tk.Radiobutton(self.frame_botones, text="Florería 1", variable=self.radio_var, value="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 1")).pack(pady=5)
+        # tk.Radiobutton(self.frame_botones, text="Florería 2", variable=self.radio_var, value="https://media.timeout.com/images/102419719/image.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 2")).pack(pady=5)
+        # tk.Radiobutton(self.frame_botones, text="Florería 3", variable=self.radio_var, value="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 3")).pack(pady=5)
+
+        # # Botones de tipo check button
+        # self.check_vars = [tk.StringVar(), tk.StringVar(), tk.StringVar()]
+        # tk.Checkbutton(self.frame_botones, text="Florería 1", variable=self.check_vars[0], onvalue="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[0].get(), "Florería 1")).pack(pady=5)
+        # tk.Checkbutton(self.frame_botones, text="Florería 2", variable=self.check_vars[1], onvalue="https://media.timeout.com/images/102419719/image.jpg", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[1].get(), "Florería 2")).pack(pady=5)
+        # tk.Checkbutton(self.frame_botones, text="Florería 3", variable=self.check_vars[2], onvalue="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[2].get(), "Florería 3")).pack(pady=5)
     def abrir_ventana_secundaria(self, image_url, title):
         if title in self.ventanas_abiertas_titulos:
             messagebox.showwarning("Advertencia", f"{title} ya está abierta.")
@@ -70,9 +82,10 @@ class MainApp:
 
         self.ventanas_abiertas.append(new_window)
         self.ventanas_abiertas_titulos.add(title)
+        self.ventanas_abiertas_titulos_historial.add(title)  # Agregar al historial de títulos abiertos
         self.windows_opened += 1
 
-        if len(self.ventanas_abiertas_titulos) == 3:
+        if len(self.ventanas_abiertas_titulos_historial) == 3:
             self.iniciar_cronometro(10)
 
     def cerrar_ventana_secundaria(self, window, title):
@@ -94,7 +107,7 @@ class MainApp:
         self.boton_salir.pack(pady=10)
 
     def cerrar_todas_las_ventanas(self):
-        if len(self.ventanas_abiertas_titulos) == 3:
+        if len(self.ventanas_abiertas_titulos_historial) == 3:
             for ventana in self.ventanas_abiertas:
                 ventana.destroy()
             self.root.destroy()
