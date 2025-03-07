@@ -40,10 +40,23 @@ class MainApp:
         self.root.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
     def crear_botones(self):
-        tk.Button(self.frame_botones, text="Florería 1", command=lambda: self.abrir_ventana_secundaria("https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", "Florería 1")).pack(pady=5)
-        tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
-        tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
+       
+        # Botones de tipo normal
+         tk.Button(self.frame_botones, text="Florería 1", command=lambda: self.abrir_ventana_secundaria("https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", "Florería 1")).pack(pady=5)
+         tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
+         tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
 
+        # Botones de tipo radio button
+        # self.radio_var = tk.StringVar()
+        # tk.Radiobutton(self.frame_botones, text="Florería 1", variable=self.radio_var, value="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get())).pack(pady=5)
+        # tk.Radiobutton(self.frame_botones, text="Florería 2", variable=self.radio_var, value="https://media.timeout.com/images/102419719/image.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get())).pack(pady=5)
+        # tk.Radiobutton(self.frame_botones, text="Florería 3", variable=self.radio_var, value="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get())).pack(pady=5)
+
+        # # Botones de tipo check button
+        #  self.check_vars = [tk.StringVar(), tk.StringVar(), tk.StringVar()]
+        #  tk.Checkbutton(self.frame_botones, text="Florería 1", variable=self.check_vars[0], onvalue="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[0].get(), "Florería 1")).pack(pady=5)
+        #  tk.Checkbutton(self.frame_botones, text="Florería 2", variable=self.check_vars[1], onvalue="https://media.timeout.com/images/102419719/image.jpg", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[1].get(), "Florería 2")).pack(pady=5)
+        #  tk.Checkbutton(self.frame_botones, text="Florería 3", variable=self.check_vars[2], onvalue="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[2].get(), "Florería 3")).pack(pady=5)
     def abrir_ventana_secundaria(self, image_url, title):
         new_window = tk.Toplevel(self.root)
         new_window.geometry("300x200")
