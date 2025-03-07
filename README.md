@@ -20,11 +20,11 @@ Este proyecto consiste en una aplicación de escritorio desarrollada en Python u
 
 1. Clona este repositorio en tu máquina local.
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/DARKTOTEM2703/Unidad2_2
    ```
 2. Navega al directorio del proyecto.
    ```bash
-   cd <NOMBRE_DEL_DIRECTORIO>
+   cd Unidad2_2
    ```
 3. Instala las dependencias necesarias.
    ```bash
@@ -60,4 +60,4 @@ Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENS
 
 ## Contacto
 
-Para cualquier consulta o sugerencia, por favor contacta a [Jafethgamboa27@gmail.com](mailto:tu_email@dominio.com).
+Para cualquier consulta o sugerencia, por favor contacta a [Jafethgamboa27@gmail.com](mailto:Jafethgamboa27@gmail.com).
