@@ -1,8 +1,8 @@
 import tkinter as tk  # Librería para crear interfaces gráficas
 from tkinter import messagebox  # Librería para mostrar cuadros de mensaje
 from PIL import Image, ImageTk  # Librerías para manipulación de imágenes
-import requests  # Librería para hacer solicitudes HTTP
-from io import BytesIO  # Librería para manejar datos en memoria como archivos
+import requests  # Librería para hacer manejar las urls de las imágenes
+from io import BytesIO  # Librería para manejar datos en memoria como si fueran archivos
 
 class MainApp:
     def __init__(self, root):
