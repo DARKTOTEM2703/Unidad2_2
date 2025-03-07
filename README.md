@@ -28,7 +28,9 @@ Este proyecto consiste en una aplicación de escritorio desarrollada en Python u
    ```
 3. Instala las dependencias necesarias.
    ```bash
-   pip install -r requirements.txt
+   pip install tk
+   pip install Pillow
+   pip install requests
    ```
 
 ## Uso
