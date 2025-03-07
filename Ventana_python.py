@@ -16,6 +16,7 @@ class MainApp:
         self.ventanas_abiertas = []  # Lista para almacenar las ventanas secundarias
         self.ventanas_abiertas_titulos = set()  # Conjunto para almacenar los títulos de las ventanas abiertas
         self.ventanas_abiertas_titulos_historial = set()  # Conjunto para almacenar el historial de títulos abiertos
+        self.cronometro_activo = False  # Variable para controlar el estado del cronómetro
 
         # Contenedor para los botones
         self.frame_botones = tk.Frame(self.root)
@@ -85,7 +86,8 @@ class MainApp:
         self.ventanas_abiertas_titulos_historial.add(title)  # Agregar al historial de títulos abiertos
         self.windows_opened += 1
 
-        if len(self.ventanas_abiertas_titulos_historial) == 3:
+        if len(self.ventanas_abiertas_titulos_historial) == 3 and not self.cronometro_activo:
+            self.cronometro_activo = True
             self.iniciar_cronometro(10)
 
     def cerrar_ventana_secundaria(self, window, title):
@@ -102,21 +104,21 @@ class MainApp:
             self.root.after(1000, self.iniciar_cronometro, tiempo_restante - 1)
         else:
             self.mostrar_boton_cerrar_principal()
+            self.cronometro_activo = False
 
     def mostrar_boton_cerrar_principal(self):
         self.boton_salir.pack(pady=10)
 
     def cerrar_todas_las_ventanas(self):
-        if len(self.ventanas_abiertas_titulos_historial) == 3:
+        if len(self.ventanas_abiertas_titulos_historial) == 3 and not self.cronometro_activo:
             for ventana in self.ventanas_abiertas:
                 ventana.destroy()
             self.root.destroy()
         else:
-            messagebox.showwarning("Advertencia", "Debe abrir las 3 ventanas secundarias antes de cerrar.")
+            messagebox.showwarning("Advertencia", "Debe abrir las 3 ventanas secundarias y esperar a que el cronómetro llegue a 0 antes de cerrar.")
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = MainApp(root)
-    root.protocol("WM_DELETE_WINDOW", lambda: None)
-    root.protocol("WM_DELETE_WINDOW", app.cerrar_todas_las_ventanas)
+    root.protocol("WM_DELETE_WINDOW", lambda: None)  # Deshabilitar el cierre con la "X"
     root.mainloop()
