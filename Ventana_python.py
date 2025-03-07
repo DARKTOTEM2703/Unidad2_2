@@ -74,7 +74,7 @@ class MainApp:
         response = requests.get(image_url)
         img_data = response.content
         img = Image.open(BytesIO(img_data))
-        img = img.resize((300, 200), Image.ANTIALIAS)
+        img = img.resize((300, 200))
         photo = ImageTk.PhotoImage(img)
 
         label = tk.Label(new_window, image=photo)
