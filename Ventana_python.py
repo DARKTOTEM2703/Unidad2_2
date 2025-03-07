@@ -1,8 +1,8 @@
-import tkinter as tk
-from tkinter import messagebox
-from PIL import Image, ImageTk
-import requests
-from io import BytesIO
+import tkinter as tk  # Librería para crear interfaces gráficas
+from tkinter import messagebox  # Librería para mostrar cuadros de mensaje
+from PIL import Image, ImageTk  # Librerías para manipulación de imágenes
+import requests  # Librería para hacer solicitudes HTTP
+from io import BytesIO  # Librería para manejar datos en memoria como archivos
 
 class MainApp:
     def __init__(self, root):
@@ -35,6 +35,7 @@ class MainApp:
         self.boton_salir.pack_forget()
 
     def centrar_ventana(self):
+        # Centrar la ventana en la pantalla
         self.root.update_idletasks()
         width = self.root.winfo_width()
         height = self.root.winfo_height()
@@ -43,12 +44,13 @@ class MainApp:
         self.root.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
     def crear_botones(self):
-         tk.Button(self.frame_botones, text="Florería 1", command=lambda: self.abrir_ventana_secundaria("https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", "Florería 1")).pack(pady=5)
-         tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
-         tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
+        # Crear botones para abrir ventanas secundarias con imágenes
+        tk.Button(self.frame_botones, text="Florería 1", command=lambda: self.abrir_ventana_secundaria("https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", "Florería 1")).pack(pady=5)
+        tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
+        tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
 
-        # Botones de tipo radio button
-        # self.radio_var = tk.StringVar(value="")  # Valor inicial vacío para que no haya ninguno seleccionado
+         # Botones de tipo radio button
+        # self.radio_var = tk.StringVar()
         # tk.Radiobutton(self.frame_botones, text="Florería 1", variable=self.radio_var, value="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 1")).pack(pady=5)
         # tk.Radiobutton(self.frame_botones, text="Florería 2", variable=self.radio_var, value="https://media.timeout.com/images/102419719/image.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 2")).pack(pady=5)
         # tk.Radiobutton(self.frame_botones, text="Florería 3", variable=self.radio_var, value="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 3")).pack(pady=5)
@@ -58,7 +60,9 @@ class MainApp:
         # tk.Checkbutton(self.frame_botones, text="Florería 1", variable=self.check_vars[0], onvalue="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[0].get(), "Florería 1")).pack(pady=5)
         # tk.Checkbutton(self.frame_botones, text="Florería 2", variable=self.check_vars[1], onvalue="https://media.timeout.com/images/102419719/image.jpg", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[1].get(), "Florería 2")).pack(pady=5)
         # tk.Checkbutton(self.frame_botones, text="Florería 3", variable=self.check_vars[2], onvalue="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", offvalue="", command=lambda: self.abrir_ventana_secundaria(self.check_vars[2].get(), "Florería 3")).pack(pady=5)
+        
     def abrir_ventana_secundaria(self, image_url, title):
+        # Abrir una ventana secundaria con una imagen
         if title in self.ventanas_abiertas_titulos:
             messagebox.showwarning("Advertencia", f"{title} ya está abierta.")
             return
@@ -91,14 +95,17 @@ class MainApp:
             self.iniciar_cronometro(10)
 
     def cerrar_ventana_secundaria(self, window, title):
+        # Cerrar una ventana secundaria
         self.ventanas_abiertas.remove(window)
         self.ventanas_abiertas_titulos.remove(title)
         window.destroy()
 
     def agregar_boton_cerrar(self, window):
+        # Agregar un botón para cerrar la ventana secundaria
         tk.Button(window, text="Cerrar", command=window.destroy).pack(pady=10)
 
     def iniciar_cronometro(self, tiempo_restante):
+        # Iniciar el cronómetro
         if tiempo_restante >= 0:
             self.cronometro_label.config(text=f"Tiempo restante: {tiempo_restante} s")
             self.root.after(1000, self.iniciar_cronometro, tiempo_restante - 1)
@@ -107,9 +114,11 @@ class MainApp:
             self.cronometro_activo = False
 
     def mostrar_boton_cerrar_principal(self):
+        # Mostrar el botón de salir
         self.boton_salir.pack(pady=10)
 
     def cerrar_todas_las_ventanas(self):
+        # Cerrar todas las ventanas secundarias y la ventana principal
         if len(self.ventanas_abiertas_titulos_historial) == 3 and not self.cronometro_activo:
             for ventana in self.ventanas_abiertas:
                 ventana.destroy()

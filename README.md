@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Este proyecto consiste en una aplicación de escritorio desarrollada en Python utilizando la biblioteca Tkinter. La aplicación permite abrir ventanas secundarias que muestran imágenes de florerías y cuenta con un cronómetro que se activa al abrir tres ventanas secundarias. Además, incluye un botón de salida que se muestra al finalizar el cronómetro.
+Este proyecto es una aplicación de escritorio desarrollada en Python utilizando la biblioteca Tkinter. La aplicación permite abrir ventanas secundarias que muestran imágenes de florerías y cuenta con un cronómetro que se activa al abrir tres ventanas secundarias. Además, incluye un botón de salida que se muestra al finalizar el cronómetro.
 
 ## Características
 
