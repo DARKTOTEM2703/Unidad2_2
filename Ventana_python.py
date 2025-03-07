@@ -43,12 +43,12 @@ class MainApp:
         self.root.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
     def crear_botones(self):
-        tk.Button(self.frame_botones, text="Florería 1", command=lambda: self.abrir_ventana_secundaria("https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", "Florería 1")).pack(pady=5)
-        tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
-        tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
+         tk.Button(self.frame_botones, text="Florería 1", command=lambda: self.abrir_ventana_secundaria("https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", "Florería 1")).pack(pady=5)
+         tk.Button(self.frame_botones, text="Florería 2", command=lambda: self.abrir_ventana_secundaria("https://media.timeout.com/images/102419719/image.jpg", "Florería 2")).pack(pady=5)
+         tk.Button(self.frame_botones, text="Florería 3", command=lambda: self.abrir_ventana_secundaria("https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", "Florería 3")).pack(pady=5)
 
-         # Botones de tipo radio button
-        # self.radio_var = tk.StringVar()
+        # Botones de tipo radio button
+        # self.radio_var = tk.StringVar(value="")  # Valor inicial vacío para que no haya ninguno seleccionado
         # tk.Radiobutton(self.frame_botones, text="Florería 1", variable=self.radio_var, value="https://www.liderempresarial.com/wp-content/uploads/2019/02/Floreria-Atlantico_Photographed-by-Javier-Pierini__2018_IMG_0786-1024x683.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 1")).pack(pady=5)
         # tk.Radiobutton(self.frame_botones, text="Florería 2", variable=self.radio_var, value="https://media.timeout.com/images/102419719/image.jpg", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 2")).pack(pady=5)
         # tk.Radiobutton(self.frame_botones, text="Florería 3", variable=self.radio_var, value="https://th.bing.com/th/id/OIP.cyXpWGCT7hfFlFkotGtRGAHaGL?rs=1&pid=ImgDetMain", command=lambda: self.abrir_ventana_secundaria(self.radio_var.get(), "Florería 3")).pack(pady=5)
