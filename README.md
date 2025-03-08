@@ -46,16 +46,6 @@ Este proyecto es una aplicación de escritorio desarrollada en Python utilizando
 - `Ventana_python.py`: Archivo principal que contiene la lógica de la aplicación.
 - `README.md`: Este archivo, que proporciona una descripción del proyecto y cómo utilizarlo.
 
-## Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, sigue los siguientes pasos para contribuir:
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
-3. Realiza los cambios necesarios y haz commit (`git commit -am 'Añadir nueva característica'`).
-4. Sube los cambios a tu repositorio (`git push origin feature/nueva-caracteristica`).
-5. Abre un Pull Request en este repositorio.
-
 ## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
